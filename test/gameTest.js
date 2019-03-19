@@ -18,7 +18,8 @@ describe('Game', () => {
         it('should return neighbour cells', () => {
             const game = new Game(10);
             expect(game.getNeighbours(54)).to.have.lengthOf(8);
-        })
+        });
+        
     })
 
     describe('Rules', () => {

@@ -8,4 +8,4 @@ topRow = (list, x, height) => [list[x - height]].concat(sideElems(list, x - heig
 
 neighbours = (list, x, height) => trim(sideElems(list, x).concat(bottomRow(list, x, height).concat(topRow(list, x, height))));
 
-module.exports = neighbours;
+// module.exports = neighbours;
