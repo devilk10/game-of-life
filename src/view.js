@@ -1,5 +1,8 @@
 let game;
 let id = 0;
+
+const randomValues = gameSize => Array(gameSize * 10).fill(0).map(_ => Math.floor(Math.random() * gameSize * gameSize));
+
 const generateTable = function (size) {
     let table = document.getElementById('ground');
     for (let row = 0; row < size; row++) {
@@ -19,18 +22,18 @@ let generateRows = function (table, size, cellId) {
 };
 
 const updateValues = (game) => {
-    document.getElementById("start").onclick="";
+    document.getElementById("start").onclick = "";
     let vals = game.getGround();
-    vals.map((val,index) => game.isAlive(index) ? document.getElementById(index).className = "active" : document.getElementById(index).className = "inActive")
+    vals.map((val, index) => game.isAlive(index) ? document.getElementById(index).className = "active" : document.getElementById(index).className = "inActive")
 }
 
 const createGame = (gameSize) => {
     game = new Game(gameSize);
-    game.randomLives((Array(gameSize).fill(0).map(_ => Math.floor(Math.random()*gameSize*gameSize))));
+    game.randomLives(randomValues(gameSize));
     return generateTable(gameSize);
 }
 
-const update = () => { 
+const update = () => {
     let inProgrss = setInterval(() => updateValues(game), 50);
-    setTimeout(() => clearInterval(inProgrss),15000);
+    setTimeout(() => clearInterval(inProgrss), 3000000);
 };
